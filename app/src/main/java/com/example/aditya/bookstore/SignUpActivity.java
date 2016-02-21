@@ -417,12 +417,6 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
 
                 try{
                     User obj = u.signUp(mEmail,mPassword,mAddress,mPhoneNumber);
-                    if(obj == null){
-                        Toast.makeText(getApplicationContext(),"Bad response",Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(getApplicationContext(),"Good response",Toast.LENGTH_SHORT).show();
-                    }
                 }catch (Exception e){
                     e.printStackTrace();
                 }
