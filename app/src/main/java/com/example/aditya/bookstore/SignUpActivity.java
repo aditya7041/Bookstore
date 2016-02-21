@@ -240,22 +240,6 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
             // perform the user login attempt.
             showProgress(true);
 
-                // Simulate network access
-                UserClient u = new UserClient();
-                Log.d("debug","created the user client");
-
-                try{
-                    User obj = u.signUp(email,password,address,phone_number);
-                    if(obj == null){
-                        Toast.makeText(getApplicationContext(),"Bad response",Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(getApplicationContext(),"Good response",Toast.LENGTH_SHORT).show();
-                    }
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-
             mAuthTask = new UserLoginTask(name, phone_number, address, email, password);
             mAuthTask.execute((Void) null);
         }
@@ -268,7 +252,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() >= 1;
     }
 
     /**
@@ -428,11 +412,27 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
 
             try {
                 // Simulate network access
+                UserClient u = new UserClient();
+                Log.d("debug","created the user client");
+
+                try{
+                    User obj = u.signUp(mEmail,mPassword,mAddress,mPhoneNumber);
+                    if(obj == null){
+                        Toast.makeText(getApplicationContext(),"Bad response",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Good response",Toast.LENGTH_SHORT).show();
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 return false;
             }
 
+            // Logic to play around with the object provided by the backend
+            /*
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
@@ -440,6 +440,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
                     return pieces[1].equals(mPassword);
                 }
             }
+            */
 
             // TODO: register the new account here.
             return true;
