@@ -7,6 +7,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Menu;
@@ -94,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         //MenuItem searchItem = menu.findItem(R.id.search);
         //SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        Log.d("AdiD", "Main Activity : OnCreateOptionMenu!");
         Context context = this;
         SearchManager searchManager =
                 (SearchManager) getSystemService(context.SEARCH_SERVICE);

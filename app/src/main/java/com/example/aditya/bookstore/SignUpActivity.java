@@ -426,15 +426,6 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
             }
 
             // Logic to play around with the object provided by the backend
-            /*
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-            */
 
             // TODO: register the new account here.
             return true;
