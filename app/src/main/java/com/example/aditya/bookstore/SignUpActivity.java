@@ -83,6 +83,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
     private EditText mPhoneNumber;
     private EditText mName;
     private EditText mAddress;
+    private EditText Condition;
     private View mProgressView;
     private View mLoginFormView;
     /**
@@ -94,7 +95,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_sell_main);
         // Set up the login form.
 
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -410,13 +411,15 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
+            // Simulate network access
+            UserClient u = new UserClient();
+            Log.d("debug","created the user client");
+            User Obj=null;
+
             try {
-                // Simulate network access
-                UserClient u = new UserClient();
-                Log.d("debug","created the user client");
 
                 try{
-                    User obj = u.signUp(mEmail,mPassword,mAddress,mPhoneNumber);
+                    Obj = u.signUp(mEmail,mPassword,mAddress,mPhoneNumber);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -425,8 +428,11 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
                 return false;
             }
 
-            // Logic to play around with the object provided by the backend
-
+            // Sign in Failed. Returned Object in Null.
+            if(Obj==null){
+                Toast.makeText(getApplicationContext(),"Signup Failed !",Toast.LENGTH_SHORT).show();
+                return false;
+            }
             // TODO: register the new account here.
             return true;
         }
@@ -437,8 +443,13 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
             showProgress(false);
 
             if (success) {
+
                 Toast.makeText(getApplicationContext(),"Signup Success !",Toast.LENGTH_SHORT).show();
+                Log.d("AdiD","SignUpActivity : Going to AfterSignupOrLogin Activity(Recommendation) after Signup success");
+                Intent after_signup = new Intent("com.example.aditya.bookstore.AfterSignupOrLoginActivity");
+                startActivity(after_signup);
                 finish();
+
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();

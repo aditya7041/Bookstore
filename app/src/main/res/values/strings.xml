@@ -30,4 +30,17 @@
     <string name="phone_number">Phone No. (optional)</string>
     <string name="address">Address (Optional)</string>
     <string name="home">Home</string>
+    <string name="AddMoreBooks">Add Books</string>
+
+    <!-- Strings related to Registering New book for Selling-->
+    <string name="BookName">Book Name</string>
+    <string name="BookVer">Version (Optional)</string>
+    <string name="BookAuthor">Author (Optional)</string>
+    <string name="BookPrice">Price(In Dollars)</string>
+    <string name="BookCondition">Condition</string>
+    <string name="AddMoreBook">Add More Book</string>
+    <string name="BookSubmit">Submit</string>
+    <string name="OtherRemarks">Other Remarks/Note</string>
+    <string name="BookAddress">Pick up address(Optional)</string>
+    BookAddress
 </resources>
