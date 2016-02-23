@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/LightGrey"
+    android:background="@color/BackgroundColor"
     tools:context="com.example.aditya.bookstore.SignUpActivity">
 
     <!-- Login progress -->
@@ -145,7 +145,7 @@
                 android:layout_marginLeft="90dp"
                 android:layout_marginRight="90dp"
                 android:text="@string/sign_up"
-                android:background="@color/Grey3"
+                android:background="@color/LightSeaGreen"
                 android:textStyle="bold" />
 
         </LinearLayout>

@@ -2,14 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
+    android:gravity="center_vertical"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/LightGrey"
-    tools:context="com.example.aditya.bookstore.SignUpActivity">
+    android:background="@color/BackgroundColor"
+    tools:context="com.example.aditya.bookstore.SellMainActivity">
 
     <!-- Login progress -->
     <ProgressBar
@@ -29,7 +29,8 @@
             android:id="@+id/BookForm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -39,7 +40,7 @@
                     android:id="@+id/BookName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/BookName"
+                    android:hint="Book Name"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
@@ -53,18 +54,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/BookVersion"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/BookVer"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -75,7 +64,7 @@
                     android:id="@+id/BookAuthor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/BookAuthor"
+                    android:hint="Author"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
@@ -85,7 +74,8 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+
+                <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -93,27 +83,23 @@
                     android:id="@+id/BookPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/BookPrice"
+                    android:hint="Price"
                     android:inputType="text"
                     android:maxLines="1"
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
 
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price Fixed "
+                android:id="@+id/checkBox2"
+                android:checked="false" />
+
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/BookCondition"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/BookCondition"
-                    android:imeActionId="@+id/login"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -125,7 +111,7 @@
                     android:id="@+id/BookAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/BookAddress"
+                    android:hint="Pick up location(Optional)"
                     android:imeActionId="@+id/login"
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
@@ -135,29 +121,51 @@
 
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rent"
+                android:id="@+id/checkBox"
+                android:checked="false" />
+
+
+            <EditText
+                android:id="@+id/RentMinPeriod"
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:hint="Min Period (In weeks)"
+                android:imeActionId="@+id/login"
+                android:imeActionLabel="@string/action_sign_in_short"
+                android:imeOptions="actionUnspecified"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal" />
+
+            <EditText
+                android:id="@+id/RentMaxPeriod"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:hint="Max Period (In weeks)"
+                android:imeActionId="@+id/login"
+                android:imeActionLabel="@string/action_sign_in_short"
+                android:imeOptions="actionUnspecified"
+                android:inputType="text"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:layout_gravity="center_horizontal" />
 
-                <EditText
-                    android:id="@+id/BookOtherRemarks"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/OtherRemarks"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sell"
+                android:id="@+id/Sell"
+                android:checked="false" />
 
             <LinearLayout
                 android:layout_width="341dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
                 <Button
@@ -168,8 +176,8 @@
                     android:layout_marginTop="30dp"
                     android:layout_marginLeft="50dp"
                     android:layout_marginRight="190dp"
-                    android:text="@string/BookSubmit"
-                    android:background="@color/Grey3"
+                    android:text="Submit"
+                    android:background="@color/LightSeaGreen"
                     android:textStyle="bold" />
 
                 <Button
@@ -180,13 +188,23 @@
                     android:layout_marginTop="-47dp"
                     android:layout_marginLeft="190dp"
                     android:layout_marginRight="10dp"
-                    android:text="@string/AddMoreBook"
-                    android:background="@color/Grey3"
+                    android:text=" Add Book "
+                    android:background="@color/LightSeaGreen"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Price"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:layout_gravity="right" />
 
 </LinearLayout>

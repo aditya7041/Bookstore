@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         onClickButtonListener();
 
+        /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        */
     }
 
     public void onClickButtonListener() {

@@ -95,12 +95,11 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
         // Set up the login form.
 
         BookName = (EditText) findViewById(R.id.BookName);
-        BookVersion = (EditText) findViewById(R.id.BookVersion);
         BookAuthor = (EditText) findViewById(R.id.BookAuthor);
         BookPrice = (EditText) findViewById(R.id.BookPrice);
-        BookCondition = (EditText) findViewById(R.id.BookCondition);
+        //BookCondition = (EditText) findViewById(R.id.BookCondition);
         BookAddress = (EditText) findViewById(R.id.BookAddress);
-        BookRemarks = (EditText) findViewById(R.id.BookOtherRemarks);
+        //BookRemarks = (EditText) findViewById(R.id.BookOtherRemarks);
 
         BookName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -185,12 +184,12 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
         // Check if the phone number is valid
 
         String Book_Name = BookName.getText().toString();
-        String Book_Version = BookVersion.getText().toString();
+        //String Book_Version = BookVersion.getText().toString();
         String Book_Author = BookAuthor.getText().toString();
         String Book_Price = BookPrice.getText().toString();
-        String Book_Condition = BookCondition.getText().toString();
+        //String Book_Condition = BookCondition.getText().toString();
         String Book_Address = BookAddress.getText().toString();
-        String Book_Remarks = BookRemarks.getText().toString();
+        //String Book_Remarks = BookRemarks.getText().toString();
 
 
         if (cancel) {
@@ -201,10 +200,7 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
             // perform the user login attempt.
             showProgress(true);
 
-            mAuthTask = new UserLoginTask(Book_Name,Book_Version,
-                                            Book_Author,Book_Price,
-                                            Book_Condition,Book_Address,
-                                            Book_Remarks);
+            mAuthTask = new UserLoginTask(Book_Name,Book_Author,Book_Price, Book_Address);
             mAuthTask.execute((Void) null);
         }
     }
@@ -356,24 +352,16 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String Book_Name;
-        private final String Book_Version;
         private final String Book_Author;
         private final String Book_Price;
-        private final String Book_Condition;
         private final String Book_Address;
-        private final String Book_Remarks;
 
-
-        UserLoginTask(String Book_Name, String Book_Version, String Book_Author,
-                      String Book_Price,String Book_Condition,String Book_Address,
-                      String Book_Remarks) {
+        UserLoginTask(String Book_Name, String Book_Author,
+                      String Book_Price,String Book_Address){
             this.Book_Name=Book_Name;
-            this.Book_Version=Book_Version;
             this.Book_Author=Book_Author;
             this.Book_Price=Book_Price;
-            this.Book_Condition=Book_Condition;
             this.Book_Address=Book_Address;
-            this.Book_Remarks=Book_Remarks;
         }
 
         @Override

@@ -22,7 +22,7 @@
             android:layout_height="48dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="@color/Grey3"
+            android:background="@color/LightSeaGreen"
             android:minHeight="?attr/actionBarSize"
             app:theme="@style/AppTheme.PopupOverlay">
         </android.support.v7.widget.Toolbar>
@@ -39,7 +39,6 @@
             android:layout_height="420dp"
             android:id="@+id/listView"
             android:layout_alignParentStart="true"
-            android:choiceMode="multipleChoice"
             android:background="@color/LightGrey"/>
 
     </LinearLayout>
@@ -49,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text=" Sell "
         android:id="@+id/AfterSignupOrLoginSellButton"
-        android:background="@color/Grey3"
+        android:background="@color/LightSeaGreen"
         android:textAlignment="center"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"
@@ -61,7 +60,7 @@
         android:layout_height="wrap_content"
         android:text=" Buy "
         android:id="@+id/AfterSignupOrLoginBuyButton"
-        android:background="@color/Grey3"
+        android:background="@color/LightSeaGreen"
         android:textAlignment="center"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"
