@@ -95,7 +95,7 @@ public class SignUpActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sell_main);
+        setContentView(R.layout.activity_sign_up);
         // Set up the login form.
 
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

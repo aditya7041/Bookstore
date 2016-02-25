@@ -73,13 +73,13 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
     private UserLoginTask mAuthTask = null;
 
     // UI references.
-    private EditText BookName;
-    private EditText BookVersion; // Optional
-    private EditText BookAuthor;
-    private EditText BookPrice;
-    private EditText BookCondition;
-    private EditText BookAddress; //Optional
-    private EditText BookRemarks;
+    private EditText mBookName;
+    private EditText mBookVersion; // Optional
+    private EditText mBookAuthor;
+    private EditText mBookPrice;
+    private EditText mBookCondition;
+    private EditText mBookAddress; //Optional
+    private EditText mBookRemarks;
     private View mProgressView;
     private View mLoginFormView;
     /**
@@ -91,17 +91,17 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_sell_main);
         // Set up the login form.
 
-        BookName = (EditText) findViewById(R.id.BookName);
-        BookAuthor = (EditText) findViewById(R.id.BookAuthor);
-        BookPrice = (EditText) findViewById(R.id.BookPrice);
+        mBookName = (EditText) findViewById(R.id.BookName);
+        mBookAuthor = (EditText) findViewById(R.id.BookAuthor);
+        mBookPrice = (EditText) findViewById(R.id.BookPrice);
         //BookCondition = (EditText) findViewById(R.id.BookCondition);
-        BookAddress = (EditText) findViewById(R.id.BookAddress);
+        mBookAddress = (EditText) findViewById(R.id.BookAddress);
         //BookRemarks = (EditText) findViewById(R.id.BookOtherRemarks);
 
-        BookName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mBookName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
@@ -112,16 +112,8 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                attemptLogin();
-            }
-        });
-
-        mLoginFormView = findViewById(R.id.signup_form);
-        mProgressView = findViewById(R.id.signup_progress);
+        mLoginFormView = findViewById(R.id.signup_form2);
+        //mProgressView = findViewById(R.id.signup_progress2);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -183,12 +175,12 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
 
         // Check if the phone number is valid
 
-        String Book_Name = BookName.getText().toString();
+        String Book_Name = mBookName.getText().toString();
         //String Book_Version = BookVersion.getText().toString();
-        String Book_Author = BookAuthor.getText().toString();
-        String Book_Price = BookPrice.getText().toString();
+        String Book_Author = mBookAuthor.getText().toString();
+        String Book_Price = mBookPrice.getText().toString();
         //String Book_Condition = BookCondition.getText().toString();
-        String Book_Address = BookAddress.getText().toString();
+        String Book_Address = mBookAddress.getText().toString();
         //String Book_Remarks = BookRemarks.getText().toString();
 
 
@@ -235,6 +227,7 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
                 }
             });
 
+            /*
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mProgressView.animate().setDuration(shortAnimTime).alpha(
                     show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
@@ -243,10 +236,12 @@ public class SellMainActivity extends AppCompatActivity implements LoaderManager
                     mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
                 }
             });
+            */
+
         } else {
             // The ViewPropertyAnimator APIs are not available, so simply show
             // and hide the relevant UI components.
-            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+           // mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mLoginFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
