@@ -55,7 +55,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         handleIntent(getIntent());
 
         try{
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -63,8 +63,12 @@ public class SearchResultsActivity extends AppCompatActivity {
 
         l = (ListView) findViewById(R.id.listView);
         String[] retr_books = retrieveBooksForDisplay();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, retr_books);
-        l.setAdapter(adapter);
+        if(retr_books.length >0) {
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_activated_1, retr_books);
+            l.setAdapter(adapter);
+        }else{
+            Toast toast = Toast.makeText(getApplicationContext(), "No result found !!", Toast.LENGTH_SHORT);
+        }
         
         //finish();
     }

@@ -41,7 +41,7 @@
             android:id="@+id/listView"
             android:layout_alignParentStart="true"
             android:choiceMode="multipleChoice"
-            android:background="#00000000"/>
+            android:background="@color/LightGrey"/>
 
     </LinearLayout>
 
